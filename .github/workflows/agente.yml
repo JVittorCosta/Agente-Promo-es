@@ -1,4 +1,4 @@
-name: Agente Promocoes Apostas
+name: Agente
 
 on:
   schedule:
@@ -10,28 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
-      - name: Instalar dependencias
-        run: |
-          pip install playwright
-          playwright install chromium
-
-      - name: Restaurar banco
-        uses: actions/cache@v4
-        with:
-          path: promocoes.db
-          key: db-cache-v1
-
-      - name: Coletar promocoes
-        run: python scraper.py
-
-      - name: Enviar notificacoes
-        run: python notifier.py
+      - run: pip install playwright
+      - run: playwright install chromium
+      - run: python scraper.py
+      - run: python notifier.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
