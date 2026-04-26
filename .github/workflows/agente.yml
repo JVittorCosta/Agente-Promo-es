@@ -21,7 +21,7 @@ jobs:
           pip install playwright
           playwright install chromium
 
-      - name: Restaurar banco de dados
+      - name: Restaurar banco
         uses: actions/cache@v4
         with:
           path: promocoes.db
@@ -35,9 +35,3 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-
-      - name: Salvar banco de dados
-        uses: actions/cache/save@v4
-        with:
-          path: promocoes.db
-          key: db-cache-v1
