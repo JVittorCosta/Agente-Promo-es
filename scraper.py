@@ -85,21 +85,28 @@ KEYWORDS = {
 PALAVRAS_PROMO = [
     "gratis", "grátis", "freebet", "cashback", "bonus", "bônus",
     "odds", "boost", "deposito", "depósito", "oferta", "promoção",
-    "promocao", "reembolso", "free", "ganhe", "ganha", "aposta gratis",
-    "aposta grátis", "sem risco", "dobro", "multiplica"
+    "promocao", "reembolso", "free bet", "ganhe", "ganha",
+    "aposta gratis", "aposta grátis", "sem risco", "dobro", "multiplica"
 ]
 
 PALAVRAS_CASSINO = [
     "cassino", "casino", "slot", "slots", "roleta", "blackjack",
     "poker", "pôquer", "baccarat", "caça-niquel", "jackpot",
     "crash", "mines", "aviator", "fortune", "pragmatic", "pgsoft",
-    "spribe", "evolution", "bacbo", "dragon tiger"
+    "spribe", "evolution", "bacbo", "dragon tiger", "giros",
+    "giro gratis", "giro grátis", "rodadas", "rodada gratis",
+    "rodada grátis", "tigre", "livro", "gates", "sugar",
+    "sweet", "big bass", "wild", "scatter", "spin", "spins",
+    "fruit", "book of", "fire", "diamond", "golden", "lucky",
+    "mega", "bonus buy", "ante bet", "hold and win", "sorte do tigre",
+    "sortudo", "caça", "niquel", "jogo de azar", "raspadinha"
 ]
 
 PALAVRAS_ESPORTE = [
     "futebol", "basquete", "tenis", "tênis", "vôlei", "volei",
     "esporte", "sport", "jogo", "partida", "campeonato", "liga",
-    "aposta esportiva", "pre-jogo", "ao vivo", "handicap"
+    "aposta esportiva", "pre-jogo", "ao vivo", "handicap",
+    "over", "under", "placar", "gol", "sets"
 ]
 
 def init_db():
