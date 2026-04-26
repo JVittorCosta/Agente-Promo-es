@@ -2,8 +2,8 @@ import requests
 import sqlite3
 import os
 
-TOKEN = os.environ["8623424633:AAGwTdq-KLmwF2ZdNr7CQRllTTnoG5HKYFY"]
-CHAT_ID = os.environ["1964207656"]
+TOKEN = os.environ["TELEGRAM_TOKEN"]
+CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
 
 EMOJIS = {
     "aposta_gratis": "🎁",
