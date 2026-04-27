@@ -1,4 +1,5 @@
-name: Agente V3
+name: Agente
+# v3
 on:
   schedule:
     - cron: '30 8 * * *'
@@ -13,13 +14,31 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Restaurar banco de dados
+        uses: actions/cache@v4
+        with:
+          path: promocoes.db
+          key: promocoes-db
+          restore-keys: promocoes-db
+
       - run: pip install playwright requests
+
       - run: playwright install chromium
+
       - run: python scraper.py
+
       - run: python notifier.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Salvar banco de dados
+        uses: actions/cache/save@v4
+        with:
+          path: promocoes.db
+          key: promocoes-db-${{ github.run_id }}
