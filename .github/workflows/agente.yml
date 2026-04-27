@@ -1,4 +1,4 @@
-name: Agente
+name: Agente V3
 on:
   schedule:
     - cron: '30 8 * * *'
