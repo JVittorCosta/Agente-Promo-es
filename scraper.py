@@ -46,7 +46,6 @@ CASAS = [
     {"nome": "Casa de Apostas", "url": "https://casadeapostas.bet.br/br/promo"},
     {"nome": "H2 Bet", "url": "https://www.h2.bet.br/promocoes"},
     {"nome": "Brasil da Sorte", "url": "https://www.brasildasorte.bet.br/"},
-    {"nome": "Seguro Bet", "url": "https://www.seguro.bet.br/promocoes"},
     {"nome": "BR4 Bet", "url": "https://br4.bet.br/sports#/overview"},
     {"nome": "Lotogreen", "url": "https://lotogreen.bet.br/sports#/overview"},
     {"nome": "Golde Bet", "url": "https://goldebet.bet.br/sports#/overview"},
@@ -55,7 +54,6 @@ CASAS = [
     {"nome": "Hiper Bet", "url": "https://hiper.bet.br/ptb/contents/promotions"},
     {"nome": "Estrela Bet", "url": "https://www.estrelabet.bet.br/ofertas"},
     {"nome": "Aposta Ganha", "url": "https://apostaganha.bet.br/?open_promo_modal=true"},
-    {"nome": "Stake", "url": "https://stake.bet.br/esportes/home"},
     {"nome": "4Play Bet", "url": "https://4play.bet.br/promocoes"},
     {"nome": "Pagol", "url": "https://pagol.bet.br/br/promocoes/promo"},
     {"nome": "BRX Bet", "url": "https://brx.bet.br/promotions"},
@@ -63,8 +61,6 @@ CASAS = [
     {"nome": "Lance de Sorte", "url": "https://lancedesorte.bet.br/sports/desktop/promotions"},
     {"nome": "Apostou", "url": "https://www.apostou.bet.br/promotions"},
     {"nome": "Bravo Bet", "url": "https://bravo.bet.br/promocoes"},
-    {"nome": "BR Bet", "url": "https://www.brbet.bet.br/sports#/overview"},
-    {"nome": "MMA Bet", "url": "https://mmabet.bet.br/sports/"},
     {"nome": "Multi Bet", "url": "https://multi.bet.br/pb/promotions/sports"},
     {"nome": "Bet VIP", "url": "https://betvip.bet.br/promotions"},
     {"nome": "Aposta Tudo", "url": "https://apostatudo.bet.br/sports"},
@@ -76,71 +72,81 @@ CASAS = [
 ]
 
 KEYWORDS = {
-    "aposta_gratis": ["aposta gratis", "aposta grátis", "free bet", "freebet", "aposta sem risco", "aposte e ganhe", "freebet", "superodds", "comboboost"],
-    "cashback": ["cashback esport", "cashback futebol", "cashback aposta", "cashback semanal esport"],
-    "super_odds": ["super odds", "odds aumentadas", "odds turbinadas", "boost", "superodds", "super aposta turbinada", "turbinada", "mega impulso", "ou anula", "odds melhoradas"],
-    "bonus": ["bonus boas-vindas", "bonus primeiro deposito", "bonus esport"],
+    "aposta_gratis": ["aposta gratis", "aposta grátis", "free bet", "freebet", "aposta sem risco", "bet & get", "aposte ganhe", "aposta ganha"],
+    "cashback": ["cashback futebol", "cashback esport", "cashback aposta", "cashback champions", "cashback libertadores", "cashback semanal"],
+    "super_odds": ["super odds", "odds aumentadas", "odds turbinadas", "boost", "superodds", "super aposta turbinada", "turbinada da", "mega impulso", "ou anula", "multiplas turbinadas em ate"],
+    "bonus": ["bonus futebol", "bonus esport", "bonus aposta", "bonus acumulador esport"],
 }
 
-PALAVRAS_PROMO_ESPORTE = [
-    "aposta gratis", "aposta grátis", "freebet", "free bet",
-    "super odds", "superodds", "odds aumentadas", "odds turbinadas",
-    "odds melhoradas", "boost", "turbinada", "turbinado",
-    "mega impulso", "ou anula", "aposte e ganhe",
-    "cashback futebol", "cashback esport", "cashback aposta",
-    "cashback champions", "cashback libertadores", "cashback brasileirao",
-    "bonus futebol", "bonus esport", "bonus aposta",
-    "acumulador", "combo boost", "comboboost",
-    "aposta sem risco", "reembolso futebol", "reembolso esport",
-    "kings league", "champions league", "libertadores", "brasileirao",
-    "copa do brasil", "europa league", "premier league",
-    "freebet todos os dias", "liga da galera",
-    "super aposta turbinada", "super odds bds",
+TITULOS_GENERICOS = [
+    "multiplas turbinadas", "odds turbinadas", "super odds",
+    "odds aumentadas", "freebet", "free bet", "cashback",
+    "bonus", "bônus", "promocoes", "promoções", "destaques",
+    "esportes", "ver todos", "participar", "saiba mais",
+    "ler mais", "todas", "ambos", "copa libertadores",
+    "champions league", "brasileirao", "premier league",
+    "encerra em", "tempo restante", "quiz", "bolao",
+    "como usar", "indique e ganhe", "1 ano",
 ]
 
 PALAVRAS_CASSINO = [
     "cassino", "casino", "slot", "slots", "roleta", "blackjack",
-    "poker", "pôquer", "baccarat", "caça-niquel", "jackpot",
-    "crash", "mines", "aviator", "fortune", "pragmatic", "pgsoft",
-    "spribe", "evolution", "bacbo", "dragon tiger", "giros",
-    "giro gratis", "giro grátis", "rodadas gratis", "rodadas grátis",
-    "tigre", "gates", "sugar rush", "sweet bonanza", "big bass",
-    "wild", "scatter", "fruit", "book of", "diamond",
-    "bonus buy", "ante bet", "hold and win", "sortudo",
-    "raspadinha", "popok", "evoplay", "aviatrix", "fortune rabbit",
-    "fortune snake", "fortune tiger", "fortune ox", "rico gorila",
-    "jaguar dojo", "rico rabbit", "rico dj", "yo dragon",
-    "torneio evoplay", "superspin", "supercoins", "supercoins",
+    "poker", "pôquer", "baccarat", "jackpot", "crash", "mines",
+    "aviator", "fortune", "pragmatic", "pgsoft", "spribe",
+    "evolution", "bacbo", "dragon tiger", "giros", "giro gratis",
+    "giro grátis", "rodadas gratis", "rodadas grátis", "tigre",
+    "gates", "sugar rush", "sweet bonanza", "big bass", "wild",
+    "scatter", "fruit", "book of", "diamond", "bonus buy",
+    "hold and win", "sortudo", "raspadinha", "popok", "evoplay",
+    "aviatrix", "fortune rabbit", "fortune snake", "fortune tiger",
+    "fortune ox", "rico gorila", "jaguar dojo", "rico rabbit",
+    "rico dj", "yo dragon", "torneio evoplay", "superspin",
+    "supercoins", "popok gaming",
 ]
 
 PALAVRAS_LIXO = [
-    "cookie", "privacidade", "termos e condicoes", "você concorda",
-    "saiba mais sobre", "política de privacidade",
-    "é seguro apostar", "como funciona", "o que é",
-    "format", "decimal", "americanas", "hongkong",
+    "cookie", "privacidade", "você concorda", "política de privacidade",
+    "é seguro apostar", "não é permitido apostar com recursos",
+    "decimal", "americanas", "hongkong", "formato de odds",
     "minha conta", "notificacoes", "chat social", "depositar",
     "retirada", "historico", "detalhes da conta", "verificacao",
     "jogo responsavel", "configuracoes", "ajuda", "suporte",
-    "você está sendo bloqueado", "unable to access", "sorry",
-    "você foi bloqueado", "blocked",
+    "unable to access", "sorry", "você foi bloqueado", "blocked",
     "onde assistir", "horario e odds", "ao vivo:",
-    "1º tempo", "2º tempo", "ambos os tempos",
-    "ganhador", "empate", "suspenso",
-    "esportes ativos", "ao vivo",
-    "não é permitido apostar com recursos",
+    "1º tempo", "2º tempo", "ganhador", "empate", "suspenso",
+    "esportes ativos", "clique aqui e confira",
+    "ver todos", "participe", "participar", "saiba mais",
+    "ler mais", "ver detalhes",
+]
+
+PALAVRAS_PROMO_VALIDAS = [
+    "ganhe ate r$", "ganhe r$", "aposte r$", "ate r$",
+    "aposta gratis", "aposta grátis", "freebet", "free bet",
+    "aposta sem risco", "reembolso", "bet & get",
+    "cashback futebol", "cashback esport", "cashback na champions",
+    "cashback na libertadores", "cashback no brasileirao",
+    "super aposta turbinada", "turbinada da play",
+    "mega impulso", "ou anula", "superodds",
+    "odds aumentadas de hoje", "multiplas turbinadas em ate",
+    "bonus acumulador", "acumulador turbinado",
+    "combo boost", "comboboost", "quiz brasileirao",
+    "bolao europeu", "liga da galera",
+    "kings league", "aposte e ganhe na champions",
+    "utilize a ferramenta criar aposta",
+    "garanta 100%", "garanta 50%",
+    "50% cashback", "25% cashback", "20% cashback",
+    "100% do valor", "dobro da odd",
 ]
 
 PALAVRAS_ESPECIAIS = {
     "Lottu": ["super aposta turbinada"],
     "Esportes da Sorte": ["super aposta turbinada"],
-    "Brasil da Sorte": ["super odds bds", "odds aumentadas", "freebet", "bonus acumulador"],
     "Bulls Bet": ["mega impulso"],
-    "Bet VIP": ["odds aumentadas"],
+    "Bet VIP": ["odds aumentadas de hoje"],
     "Aposta Tudo": ["superodds"],
     "Play Bet": ["turbinada da play"],
     "Bolsa de Aposta": ["ou anula"],
-    "Stake": ["aposte e ganhe"],
-    "Ganhei Bet": ["superodds", "comboboost", "quiz", "bolao europeu"],
+    "Ganhei Bet": ["quiz brasileirao", "bolao europeu", "comboboost"],
 }
 
 def init_db():
@@ -167,10 +173,20 @@ def detectar_tipo(titulo, descricao):
             return tipo
     return "outro"
 
+def is_titulo_generico(titulo):
+    t = titulo.lower().strip()
+    for gen in TITULOS_GENERICOS:
+        if t == gen:
+            return True
+    return False
+
 def is_valido(titulo, casa_nome):
     t = titulo.lower().strip()
 
-    if len(t) < 10 or len(t) > 150:
+    if len(t) < 15 or len(t) > 120:
+        return False
+
+    if is_titulo_generico(t):
         return False
 
     for lixo in PALAVRAS_LIXO:
@@ -185,7 +201,7 @@ def is_valido(titulo, casa_nome):
     if any(p in t for p in palavras_especiais):
         return True
 
-    if any(p in t for p in PALAVRAS_PROMO_ESPORTE):
+    if any(p in t for p in PALAVRAS_PROMO_VALIDAS):
         return True
 
     return False
@@ -244,8 +260,7 @@ async def scrape_casa(browser, casa):
                 parent = await el.evaluate_handle(
                     "el => el.closest('article, section, li') || el.parentElement"
                 )
-                desc_full = (await parent.as_element().inner_text()).strip()
-                desc = desc_full[:300]
+                desc = (await parent.as_element().inner_text()).strip()[:300]
             except:
                 pass
 
