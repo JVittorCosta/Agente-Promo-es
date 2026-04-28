@@ -30,7 +30,6 @@ CASAS = [
     {"nome": "Rei do Pitaco", "url": "https://reidopitaco.bet.br/promocoes?tab=all"},
     {"nome": "Meridian Bet", "url": "https://meridianbet.bet.br/promo/ca/category/1413"},
     {"nome": "7K Bet", "url": "https://7k.bet.br/promotions"},
-    {"nome": "Cassino Bet", "url": "https://cassino.bet.br/promotions"},
     {"nome": "Vera Bet", "url": "https://vera.bet.br/promotions"},
     {"nome": "Bet Nacional", "url": "https://betnacional.bet.br/"},
     {"nome": "Pix Bet", "url": "https://pix.bet.br/sports"},
@@ -69,7 +68,6 @@ CASAS = [
     {"nome": "Multi Bet", "url": "https://multi.bet.br/pb/promotions/sports"},
     {"nome": "Bet VIP", "url": "https://betvip.bet.br/promotions"},
     {"nome": "Aposta Tudo", "url": "https://apostatudo.bet.br/sports"},
-    {"nome": "Spin Bet", "url": "https://spin.bet.br/novidades/"},
     {"nome": "Ganhei Bet", "url": "https://ganhei.bet.br/promotions"},
     {"nome": "Play Bet", "url": "https://play.bet.br/sports"},
     {"nome": "Up Bet", "url": "https://up.bet.br/pt-BR/pages/promocoes#/overview"},
@@ -78,25 +76,26 @@ CASAS = [
 ]
 
 KEYWORDS = {
-    "aposta_gratis": ["aposta gratis", "aposta grátis", "free bet", "freebet", "aposta sem risco", "aposte e ganhe"],
-    "cashback": ["cashback", "cash back", "dinheiro de volta"],
-    "super_odds": [
-        "super odds", "odds aumentadas", "odds turbinadas", "odds melhoradas",
-        "boost", "superodds", "super aposta turbinada", "aposta turbinada",
-        "turbinada", "mega impulso", "odds aumentadas", "super odds bds",
-        "ou anula"
-    ],
-    "bonus": ["bonus", "bônus", "boas-vindas", "primeiro deposito", "primeiro depósito"],
+    "aposta_gratis": ["aposta gratis", "aposta grátis", "free bet", "freebet", "aposta sem risco", "aposte e ganhe", "freebet", "superodds", "comboboost"],
+    "cashback": ["cashback esport", "cashback futebol", "cashback aposta", "cashback semanal esport"],
+    "super_odds": ["super odds", "odds aumentadas", "odds turbinadas", "boost", "superodds", "super aposta turbinada", "turbinada", "mega impulso", "ou anula", "odds melhoradas"],
+    "bonus": ["bonus boas-vindas", "bonus primeiro deposito", "bonus esport"],
 }
 
-PALAVRAS_PROMO = [
-    "gratis", "grátis", "freebet", "cashback", "bonus", "bônus",
-    "odds", "boost", "deposito", "depósito", "oferta", "promoção",
-    "promocao", "reembolso", "free bet", "ganhe", "ganha",
-    "aposta gratis", "aposta grátis", "sem risco", "dobro", "multiplica",
-    "turbinada", "turbinado", "impulso", "mega impulso", "superodds",
-    "super odds", "aumentadas", "anula", "aposte e ganhe", "kings league",
-    "champions", "acumulador", "combo", "seguro"
+PALAVRAS_PROMO_ESPORTE = [
+    "aposta gratis", "aposta grátis", "freebet", "free bet",
+    "super odds", "superodds", "odds aumentadas", "odds turbinadas",
+    "odds melhoradas", "boost", "turbinada", "turbinado",
+    "mega impulso", "ou anula", "aposte e ganhe",
+    "cashback futebol", "cashback esport", "cashback aposta",
+    "cashback champions", "cashback libertadores", "cashback brasileirao",
+    "bonus futebol", "bonus esport", "bonus aposta",
+    "acumulador", "combo boost", "comboboost",
+    "aposta sem risco", "reembolso futebol", "reembolso esport",
+    "kings league", "champions league", "libertadores", "brasileirao",
+    "copa do brasil", "europa league", "premier league",
+    "freebet todos os dias", "liga da galera",
+    "super aposta turbinada", "super odds bds",
 ]
 
 PALAVRAS_CASSINO = [
@@ -104,23 +103,44 @@ PALAVRAS_CASSINO = [
     "poker", "pôquer", "baccarat", "caça-niquel", "jackpot",
     "crash", "mines", "aviator", "fortune", "pragmatic", "pgsoft",
     "spribe", "evolution", "bacbo", "dragon tiger", "giros",
-    "giro gratis", "giro grátis", "rodadas", "rodada gratis",
-    "rodada grátis", "tigre", "gates", "sugar", "sweet", "big bass",
-    "wild", "scatter", "spin", "spins", "fruit", "book of", "fire",
-    "diamond", "golden", "lucky", "mega", "bonus buy", "ante bet",
-    "hold and win", "sortudo", "caça", "niquel", "raspadinha"
+    "giro gratis", "giro grátis", "rodadas gratis", "rodadas grátis",
+    "tigre", "gates", "sugar rush", "sweet bonanza", "big bass",
+    "wild", "scatter", "fruit", "book of", "diamond",
+    "bonus buy", "ante bet", "hold and win", "sortudo",
+    "raspadinha", "popok", "evoplay", "aviatrix", "fortune rabbit",
+    "fortune snake", "fortune tiger", "fortune ox", "rico gorila",
+    "jaguar dojo", "rico rabbit", "rico dj", "yo dragon",
+    "torneio evoplay", "superspin", "supercoins", "supercoins",
+]
+
+PALAVRAS_LIXO = [
+    "cookie", "privacidade", "termos e condicoes", "você concorda",
+    "saiba mais sobre", "política de privacidade",
+    "é seguro apostar", "como funciona", "o que é",
+    "format", "decimal", "americanas", "hongkong",
+    "minha conta", "notificacoes", "chat social", "depositar",
+    "retirada", "historico", "detalhes da conta", "verificacao",
+    "jogo responsavel", "configuracoes", "ajuda", "suporte",
+    "você está sendo bloqueado", "unable to access", "sorry",
+    "você foi bloqueado", "blocked",
+    "onde assistir", "horario e odds", "ao vivo:",
+    "1º tempo", "2º tempo", "ambos os tempos",
+    "ganhador", "empate", "suspenso",
+    "esportes ativos", "ao vivo",
+    "não é permitido apostar com recursos",
 ]
 
 PALAVRAS_ESPECIAIS = {
     "Lottu": ["super aposta turbinada"],
     "Esportes da Sorte": ["super aposta turbinada"],
-    "Brasil da Sorte": ["super odds bds"],
+    "Brasil da Sorte": ["super odds bds", "odds aumentadas", "freebet", "bonus acumulador"],
     "Bulls Bet": ["mega impulso"],
     "Bet VIP": ["odds aumentadas"],
     "Aposta Tudo": ["superodds"],
     "Play Bet": ["turbinada da play"],
     "Bolsa de Aposta": ["ou anula"],
     "Stake": ["aposte e ganhe"],
+    "Ganhei Bet": ["superodds", "comboboost", "quiz", "bolao europeu"],
 }
 
 def init_db():
@@ -147,6 +167,29 @@ def detectar_tipo(titulo, descricao):
             return tipo
     return "outro"
 
+def is_valido(titulo, casa_nome):
+    t = titulo.lower().strip()
+
+    if len(t) < 10 or len(t) > 150:
+        return False
+
+    for lixo in PALAVRAS_LIXO:
+        if lixo in t:
+            return False
+
+    for cassino in PALAVRAS_CASSINO:
+        if cassino in t:
+            return False
+
+    palavras_especiais = PALAVRAS_ESPECIAIS.get(casa_nome, [])
+    if any(p in t for p in palavras_especiais):
+        return True
+
+    if any(p in t for p in PALAVRAS_PROMO_ESPORTE):
+        return True
+
+    return False
+
 def salvar_novas(con, promos):
     novas = []
     for p in promos:
@@ -171,50 +214,41 @@ async def scrape_casa(browser, casa):
         await page.goto(casa["url"], timeout=25000, wait_until="domcontentloaded")
         await page.wait_for_timeout(4000)
 
-        palavras_especiais = PALAVRAS_ESPECIAIS.get(casa["nome"], [])
-
         elementos = await page.query_selector_all(
-            "h1, h2, h3, h4, h5, "
-            "[class*='promo'], [class*='bonus'], [class*='offer'], [class*='banner'], "
-            "[class*='promotion'], [class*='campanha'], [class*='destaque'], "
-            "[class*='sport'], [class*='esport'], [class*='boost'], "
+            "h1, h2, h3, h4, "
+            "[class*='promo'], [class*='offer'], [class*='banner'], "
+            "[class*='promotion'], [class*='boost'], "
             "[class*='turbin'], [class*='impulso'], [class*='odds']"
         )
 
         promos = []
-        vistos = set()
+        titulos_vistos = set()
 
-        for el in elementos[:40]:
+        for el in elementos[:50]:
             try:
-                titulo = (await el.inner_text()).strip()[:300]
+                titulo = (await el.inner_text()).strip()
                 titulo = titulo.split("\n")[0].strip()
             except:
                 continue
 
-            if len(titulo) < 8 or titulo in vistos:
+            if titulo in titulos_vistos:
                 continue
 
-            titulo_lower = titulo.lower()
-
-            tem_palavra_especial = any(p in titulo_lower for p in palavras_especiais)
-            tem_palavra_promo = any(p in titulo_lower for p in PALAVRAS_PROMO)
-
-            if not tem_palavra_especial and not tem_palavra_promo:
+            if not is_valido(titulo, casa["nome"]):
                 continue
 
-            if any(p in titulo_lower for p in PALAVRAS_CASSINO):
-                continue
+            titulos_vistos.add(titulo)
 
             desc = ""
             try:
                 parent = await el.evaluate_handle(
-                    "el => el.closest('article, section, li, div.card, div.promo, div.offer, div.boost') || el.parentElement"
+                    "el => el.closest('article, section, li') || el.parentElement"
                 )
-                desc = (await parent.as_element().inner_text()).strip()[:400]
+                desc_full = (await parent.as_element().inner_text()).strip()
+                desc = desc_full[:300]
             except:
                 pass
 
-            vistos.add(titulo)
             uid = hashlib.md5(f"{casa['nome']}{titulo}".encode()).hexdigest()
             promos.append({
                 "id": uid,
@@ -226,7 +260,7 @@ async def scrape_casa(browser, casa):
                 "data_coleta": datetime.now().isoformat(),
             })
 
-        print(f"{casa['nome']}: {len(promos)} promocoes encontradas")
+        print(f"{casa['nome']}: {len(promos)} promocoes validas")
         return promos
 
     except Exception as e:
