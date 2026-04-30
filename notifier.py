@@ -6,11 +6,12 @@ TOKEN = os.environ.get("TELEGRAM_TOKEN", "")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 EMOJIS = {
-    "aposta_gratis": "Aposta Gratis",
-    "cashback": "Cashback",
-    "super_odds": "Super Odds",
-    "bonus": "Bonus",
-    "outro": "Promocao",
+    "aposta_gratis": "🎁",
+    "cashback": "💰",
+    "super_odds": "🚀",
+    "bonus": "🎯",
+    "missao": "🏆",
+    "outro": "📢",
 }
 
 def enviar(msg):
@@ -26,12 +27,12 @@ def notificar():
     ).fetchall()
 
     for id_, casa, titulo, desc, url, tipo in pendentes:
-        tipo_label = EMOJIS.get(tipo, "Promocao")
+        emoji = EMOJIS.get(tipo, "📢")
         msg = (
-            f"[{tipo_label}] {casa}\n"
-            f"{titulo}\n"
+            f"{emoji} <b>{casa}</b>\n"
+            f"<b>{titulo}</b>\n"
             f"{desc[:200]}\n"
-            f"{url}"
+            f"🔗 {url}"
         )
         enviar(msg)
         con.execute("UPDATE promocoes SET notificado=1 WHERE id=?", (id_,))
