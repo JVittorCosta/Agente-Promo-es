@@ -17,6 +17,11 @@ PERFIS_INSTAGRAM = [
     {"casa": "F12 Bet", "usuario": "f12bet"},
     {"casa": "Betsul", "usuario": "betsul"},
     {"casa": "Vai de Bet", "usuario": "vaidebet"},
+    {"casa": "Betsson", "usuario": "betssonbrasil"},
+    {"casa": "Rei do Pitaco", "usuario": "reidopitaco"},
+    {"casa": "Multi Bet", "usuario": "multibet"},
+    {"casa": "Meridian Bet", "usuario": "meridianbet_br"},
+    {"casa": "Versus", "usuario": "versusbet_br"},
 ]
 
 PERFIS_TWITTER = [
@@ -25,6 +30,48 @@ PERFIS_TWITTER = [
     {"casa": "KTO", "usuario": "KTOBrasil"},
     {"casa": "Galera Bet", "usuario": "GaleraBet"},
     {"casa": "Sportingbet", "usuario": "Sportingbet_BR"},
+    {"casa": "Hiper Bet", "usuario": "HiperBet_BR"},
+    {"casa": "Betsul", "usuario": "betsul"},
+    {"casa": "F12 Bet", "usuario": "f12bet"},
+]
+
+PALAVRAS_CASSINO = [
+    "slot", "slots", "cassino", "casino", "roleta", "blackjack",
+    "poker", "baccarat", "crash", "mines", "aviator", "fortune",
+    "pragmatic", "pgsoft", "spribe", "evolution", "giros",
+    "rodadas gratis", "rodadas grátis", "giro gratis", "giro grátis",
+    "tigre", "gates", "sugar rush", "sweet bonanza", "big bass",
+    "wild", "scatter", "book of", "fortune rabbit", "fortune snake",
+    "fortune tiger", "superspin", "supercoins", "golden chips",
+    "playtech", "evoplay", "popok",
+]
+
+PALAVRAS_LIXO = [
+    "siga", "seguir", "compartilhe", "marque um amigo",
+    "regulamento", "termos e condições", "saiba mais",
+    "jogue com responsabilidade", "proibido para menores",
+    "18+", "+18", "portaria", "spa/mf",
+]
+
+PALAVRAS_PROMO_VALIDAS = [
+    "aposta gratis", "aposta grátis", "freebet", "free bet",
+    "cashback futebol", "cashback esport", "cashback na champions",
+    "cashback na libertadores", "cashback no brasileirao",
+    "cashback da liberta", "empate premiado",
+    "super odds", "superodds", "odds aumentadas", "golden boost",
+    "super aposta turbinada", "turbinada", "super aumentada",
+    "mega impulso", "ou anula", "marca ou anula",
+    "ganhe r$", "ganhe ate r$", "aposte r$",
+    "aposta sem risco", "reembolso",
+    "bonus futebol", "bonus esport", "bonus apostas",
+    "missao", "missão", "desafio", "liga da galera",
+    "kings league", "champions league e ganhe",
+    "libertadores e ganhe", "brasileirao e ganhe",
+    "nba e ganhe", "nba playoffs",
+    "utilize a ferramenta criar aposta",
+    "garanta 100%", "garanta 50%",
+    "50% cashback", "25% cashback", "20% cashback",
+    "100% do valor", "chance extra",
 ]
 
 def init_db():
@@ -44,104 +91,170 @@ def init_db():
     con.commit()
     return con
 
-def classificar_post(texto):
-    texto_lower = texto.lower()
-
-    palavras_cassino = [
-        "slot", "cassino", "casino", "roleta", "crash", "mines",
-        "aviator", "giros", "rodadas gratis", "fortune", "pragmatic"
-    ]
-    if any(p in texto_lower for p in palavras_cassino):
-        return None
-
-    if any(p in texto_lower for p in ["aposta grátis", "aposta gratis", "freebet", "free bet"]):
+def detectar_tipo(texto):
+    t = texto.lower()
+    if any(p in t for p in ["aposta gratis", "aposta grátis", "freebet", "free bet", "aposta sem risco", "chance extra"]):
         return "aposta_gratis"
-    if "cashback" in texto_lower:
+    if any(p in t for p in ["cashback", "empate premiado", "reembolso"]):
         return "cashback"
-    if any(p in texto_lower for p in ["super odds", "odds aumentadas", "golden boost", "turbinada"]):
+    if any(p in t for p in ["super odds", "odds aumentadas", "golden boost", "turbinada", "mega impulso", "ou anula", "superodds", "super aumentada"]):
         return "super_odds"
-    if any(p in texto_lower for p in ["bônus", "bonus", "ganhe r$", "ganhe até r$"]):
+    if any(p in t for p in ["missao", "missão", "desafio", "liga da galera"]):
+        return "missao"
+    if any(p in t for p in ["bonus", "bônus"]):
         return "bonus"
+    return "outro"
 
-    return None
+def is_post_valido(texto):
+    if not texto or len(texto) < 20:
+        return False
+
+    t = texto.lower()
+
+    for cassino in PALAVRAS_CASSINO:
+        if cassino in t:
+            return False
+
+    for lixo in PALAVRAS_LIXO:
+        if lixo in t:
+            return False
+
+    if any(p in t for p in PALAVRAS_PROMO_VALIDAS):
+        return True
+
+    return False
+
+def salvar_nova(con, promo):
+    try:
+        con.execute(
+            "INSERT INTO promocoes VALUES (?,?,?,?,?,?,?,0)",
+            (promo["id"], promo["casa"], promo["titulo"],
+             promo["descricao"], promo["url"], promo["tipo"],
+             promo["data_coleta"])
+        )
+        con.commit()
+        return True
+    except:
+        return False
 
 def scrape_instagram(perfil):
-    print(f"Scraping Instagram: {perfil['usuario']}")
+    print(f"Instagram: {perfil['usuario']}")
     try:
-        run = requests.post(
+        resposta = requests.post(
             "https://api.apify.com/v2/acts/apify~instagram-post-scraper/run-sync-get-dataset-items",
-            params={"token": APIFY_TOKEN},
+            params={"token": APIFY_TOKEN, "timeout": 60},
             json={
                 "directUrls": [f"https://www.instagram.com/{perfil['usuario']}/"],
-                "resultsLimit": 10
+                "resultsLimit": 12
             },
-            timeout=60
+            timeout=90
         )
-        return run.json() if run.status_code == 200 else []
+        if resposta.status_code == 200:
+            return resposta.json()
+        print(f"  Erro status: {resposta.status_code}")
+        return []
     except Exception as e:
-        print(f"Erro Instagram {perfil['usuario']}: {e}")
+        print(f"  Erro: {e}")
         return []
 
 def scrape_twitter(perfil):
-    print(f"Scraping Twitter: {perfil['usuario']}")
+    print(f"Twitter: {perfil['usuario']}")
     try:
-        run = requests.post(
+        resposta = requests.post(
             "https://api.apify.com/v2/acts/apify~twitter-scraper/run-sync-get-dataset-items",
-            params={"token": APIFY_TOKEN},
+            params={"token": APIFY_TOKEN, "timeout": 60},
             json={
-                "startUrls": [f"https://twitter.com/{perfil['usuario']}"],
-                "maxItems": 10
+                "startUrls": [{"url": f"https://twitter.com/{perfil['usuario']}"}],
+                "maxItems": 12
             },
-            timeout=60
+            timeout=90
         )
-        return run.json() if run.status_code == 200 else []
+        if resposta.status_code == 200:
+            return resposta.json()
+        print(f"  Erro status: {resposta.status_code}")
+        return []
     except Exception as e:
-        print(f"Erro Twitter {perfil['usuario']}: {e}")
+        print(f"  Erro: {e}")
         return []
 
-def processar_posts(con, posts, casa, rede, url_perfil):
+def processar_posts_instagram(con, posts, perfil):
     novas = 0
-    for post in posts:
-        texto = post.get("caption") or post.get("text") or post.get("full_text", "")
-        if not texto or len(texto) < 10:
-            continue
+    url_perfil = f"https://www.instagram.com/{perfil['usuario']}/"
 
-        tipo = classificar_post(texto)
-        if not tipo:
+    for post in posts:
+        texto = post.get("caption", "") or ""
+        if not is_post_valido(texto):
             continue
 
         titulo = texto[:100].split("\n")[0].strip()
-        uid = hashlib.md5(f"{rede}{casa}{titulo}".encode()).hexdigest()
+        descricao = texto[:400]
+        uid = hashlib.md5(f"instagram_{perfil['casa']}_{titulo}".encode()).hexdigest()
 
-        try:
-            con.execute(
-                "INSERT INTO promocoes VALUES (?,?,?,?,?,?,?,0)",
-                (uid, f"{casa} ({rede})", titulo, texto[:500],
-                 url_perfil, tipo, datetime.now().isoformat())
-            )
+        promo = {
+            "id": uid,
+            "casa": f"{perfil['casa']} (Instagram)",
+            "titulo": titulo,
+            "descricao": descricao,
+            "url": post.get("url", url_perfil),
+            "tipo": detectar_tipo(texto),
+            "data_coleta": datetime.now().isoformat(),
+        }
+
+        if salvar_nova(con, promo):
             novas += 1
-        except:
-            pass
+            print(f"  Nova: {titulo[:60]}")
 
-    con.commit()
+    return novas
+
+def processar_posts_twitter(con, posts, perfil):
+    novas = 0
+    url_perfil = f"https://twitter.com/{perfil['usuario']}"
+
+    for post in posts:
+        texto = post.get("text", "") or post.get("full_text", "") or ""
+        if not is_post_valido(texto):
+            continue
+
+        titulo = texto[:100].split("\n")[0].strip()
+        descricao = texto[:400]
+        uid = hashlib.md5(f"twitter_{perfil['casa']}_{titulo}".encode()).hexdigest()
+
+        promo = {
+            "id": uid,
+            "casa": f"{perfil['casa']} (Twitter)",
+            "titulo": titulo,
+            "descricao": descricao,
+            "url": post.get("url", url_perfil),
+            "tipo": detectar_tipo(texto),
+            "data_coleta": datetime.now().isoformat(),
+        }
+
+        if salvar_nova(con, promo):
+            novas += 1
+            print(f"  Nova: {titulo[:60]}")
+
     return novas
 
 def main():
+    if not APIFY_TOKEN:
+        print("APIFY_TOKEN não configurado, pulando redes sociais")
+        return
+
     con = init_db()
     total = 0
 
+    print("\n=== INSTAGRAM ===")
     for perfil in PERFIS_INSTAGRAM:
         posts = scrape_instagram(perfil)
-        url = f"https://www.instagram.com/{perfil['usuario']}/"
-        novas = processar_posts(con, posts, perfil["casa"], "Instagram", url)
-        print(f"  {perfil['casa']} Instagram: {novas} novas")
+        novas = processar_posts_instagram(con, posts, perfil)
+        print(f"  {perfil['casa']}: {len(posts)} posts, {novas} novas promocoes")
         total += novas
 
+    print("\n=== TWITTER ===")
     for perfil in PERFIS_TWITTER:
         posts = scrape_twitter(perfil)
-        url = f"https://twitter.com/{perfil['usuario']}"
-        novas = processar_posts(con, posts, perfil["casa"], "Twitter", url)
-        print(f"  {perfil['casa']} Twitter: {novas} novas")
+        novas = processar_posts_twitter(con, posts, perfil)
+        print(f"  {perfil['casa']}: {len(posts)} posts, {novas} novas promocoes")
         total += novas
 
     print(f"\nTotal redes sociais: {total} novas promocoes")
