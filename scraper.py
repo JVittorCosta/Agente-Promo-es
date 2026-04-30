@@ -5,78 +5,34 @@ import hashlib
 from datetime import datetime
 
 CASAS = [
-    {"nome": "Bolsa de Aposta", "url": "https://bolsadeaposta.bet.br/b/exchange/custom-markets"},
+    {"nome": "Bet365", "url": "https://www.bet365.bet.br/#/HO/"},
     {"nome": "Lottu", "url": "https://www.lottu.bet.br/sports"},
     {"nome": "Sporty", "url": "https://www.sporty.bet.br/br/promotions/"},
     {"nome": "Betsson", "url": "https://www.betsson.bet.br/promocoes?filter=sportsbook"},
     {"nome": "Esportes da Sorte", "url": "https://esportesdasorte.bet.br/ptb/bet/main"},
-    {"nome": "Jogo de Ouro", "url": "https://jogodeouro.bet.br/pt/promotions/sports"},
     {"nome": "Betsul", "url": "https://betsul.bet.br/beneficios"},
-    {"nome": "MCGames", "url": "https://blog.mcgames.bet.br/novidades/"},
+    {"nome": "MCGames", "url": "https://mcgames.bet.br/sports"},
     {"nome": "Betano", "url": "https://www.betano.bet.br/"},
     {"nome": "Sportingbet", "url": "https://www.sportingbet.bet.br/pt-br/promo/offers/p/sportsbook"},
     {"nome": "KTO", "url": "https://www.kto.bet.br/promo/sports"},
-    {"nome": "F12 Bet", "url": "https://f12.bet.br/promocao/"},
-    {"nome": "Lottoland", "url": "https://www.lottoland.bet.br/ofertas#esportes"},
-    {"nome": "Sorteo Online", "url": "https://www.sorteonline.bet.br/ofertas#Aposta-Esportiva"},
-    {"nome": "BetMGM", "url": "https://www.betmgm.bet.br/promocoes"},
+    {"nome": "F12 Bet", "url": "https://f12.bet.br/prejogo/"},
     {"nome": "Vbet", "url": "https://www.vbet.bet.br/pb/promotions/sport"},
     {"nome": "Bet Esporte", "url": "https://betesporte.bet.br/sports/desktop/promotions"},
-    {"nome": "Betfair", "url": "https://www.betfair.bet.br/apostas/"},
     {"nome": "Viva Sorte", "url": "https://vivasorte.bet.br/promocoes"},
-    {"nome": "Novibet", "url": "https://www.novibet.bet.br/apostas-esportivas"},
     {"nome": "Versus", "url": "https://www.versus.bet.br/promos"},
-    {"nome": "Rivalo", "url": "https://www.rivalo.bet.br/pt/promotions"},
     {"nome": "Rei do Pitaco", "url": "https://reidopitaco.bet.br/promocoes?tab=all"},
     {"nome": "Meridian Bet", "url": "https://meridianbet.bet.br/promo/ca/category/1413"},
     {"nome": "7K Bet", "url": "https://7k.bet.br/promotions"},
     {"nome": "Vera Bet", "url": "https://vera.bet.br/promotions"},
-    {"nome": "Bet Nacional", "url": "https://betnacional.bet.br/"},
-    {"nome": "Pix Bet", "url": "https://pix.bet.br/sports"},
-    {"nome": "Galera Bet", "url": "https://www.galera.bet.br/promocoes"},
-    {"nome": "Betwarrior", "url": "https://apostas.betwarrior.bet.br/pt-br/sports/home"},
-    {"nome": "Esportiva", "url": "https://esportiva.bet.br/sports"},
     {"nome": "Superbet", "url": "https://superbet.bet.br/promocoes-e-bonus"},
-    {"nome": "Bateu Bet", "url": "https://bateu.bet.br/promotions"},
-    {"nome": "Seu Bet", "url": "https://www.seu.bet.br/promocoes"},
-    {"nome": "Faz1 Bet", "url": "https://faz1.bet.br/br/sportsbook/prematch"},
-    {"nome": "Betfast", "url": "https://betfast.bet.br/br/static/promos"},
-    {"nome": "Bet da Sorte", "url": "https://www.betdasorte.bet.br/sports"},
-    {"nome": "Betao", "url": "https://betao.bet.br/pb/promotions/sport"},
     {"nome": "Casa de Apostas", "url": "https://casadeapostas.bet.br/br/promo"},
-    {"nome": "H2 Bet", "url": "https://www.h2.bet.br/promocoes"},
-    {"nome": "Brasil da Sorte", "url": "https://www.brasildasorte.bet.br/"},
-    {"nome": "BR4 Bet", "url": "https://br4.bet.br/sports#/overview"},
-    {"nome": "Lotogreen", "url": "https://lotogreen.bet.br/sports#/overview"},
-    {"nome": "Golde Bet", "url": "https://goldebet.bet.br/sports#/overview"},
-    {"nome": "Alfa Bet", "url": "https://alfa.bet.br/promocoes"},
-    {"nome": "Luva Bet", "url": "https://luva.bet.br/promotions?category=1000290"},
     {"nome": "Hiper Bet", "url": "https://hiper.bet.br/ptb/contents/promotions"},
-    {"nome": "Estrela Bet", "url": "https://www.estrelabet.bet.br/ofertas"},
-    {"nome": "Aposta Ganha", "url": "https://apostaganha.bet.br/?open_promo_modal=true"},
-    {"nome": "4Play Bet", "url": "https://4play.bet.br/promocoes"},
-    {"nome": "Pagol", "url": "https://pagol.bet.br/br/promocoes/promo"},
-    {"nome": "BRX Bet", "url": "https://brx.bet.br/promotions"},
-    {"nome": "Bulls Bet", "url": "https://bullsbet.bet.br/sports?eventlistTab=Early"},
-    {"nome": "Lance de Sorte", "url": "https://lancedesorte.bet.br/sports/desktop/promotions"},
-    {"nome": "Apostou", "url": "https://www.apostou.bet.br/promotions"},
-    {"nome": "Bravo Bet", "url": "https://bravo.bet.br/promocoes"},
     {"nome": "Multi Bet", "url": "https://multi.bet.br/pb/promotions/sports"},
     {"nome": "Bet VIP", "url": "https://betvip.bet.br/promotions"},
-    {"nome": "Aposta Tudo", "url": "https://apostatudo.bet.br/sports"},
-    {"nome": "Ganhei Bet", "url": "https://ganhei.bet.br/promotions"},
     {"nome": "Play Bet", "url": "https://play.bet.br/sports"},
-    {"nome": "Up Bet", "url": "https://up.bet.br/pt-BR/pages/promocoes#/overview"},
-    {"nome": "Start Bet", "url": "https://start.bet.br/promotions"},
     {"nome": "Band Bet", "url": "https://www.bandbet.bet.br/promocoes"},
+    {"nome": "Bolsa de Aposta", "url": "https://bolsadeaposta.bet.br/b/exchange/custom-markets"},
 ]
-
-KEYWORDS = {
-    "aposta_gratis": ["aposta gratis", "aposta grátis", "free bet", "freebet", "aposta sem risco", "bet & get", "aposte ganhe", "aposta ganha"],
-    "cashback": ["cashback futebol", "cashback esport", "cashback aposta", "cashback champions", "cashback libertadores", "cashback semanal"],
-    "super_odds": ["super odds", "odds aumentadas", "odds turbinadas", "boost", "superodds", "super aposta turbinada", "turbinada da", "mega impulso", "ou anula", "multiplas turbinadas em ate"],
-    "bonus": ["bonus futebol", "bonus esport", "bonus aposta", "bonus acumulador esport"],
-}
 
 TITULOS_GENERICOS = [
     "multiplas turbinadas", "odds turbinadas", "super odds",
@@ -86,7 +42,7 @@ TITULOS_GENERICOS = [
     "ler mais", "todas", "ambos", "copa libertadores",
     "champions league", "brasileirao", "premier league",
     "encerra em", "tempo restante", "quiz", "bolao",
-    "como usar", "indique e ganhe", "1 ano",
+    "como usar", "indique e ganhe", "1 ano", "mega bonus",
 ]
 
 PALAVRAS_CASSINO = [
@@ -101,7 +57,8 @@ PALAVRAS_CASSINO = [
     "aviatrix", "fortune rabbit", "fortune snake", "fortune tiger",
     "fortune ox", "rico gorila", "jaguar dojo", "rico rabbit",
     "rico dj", "yo dragon", "torneio evoplay", "superspin",
-    "supercoins", "popok gaming",
+    "supercoins", "popok gaming", "playtech", "golden chips",
+    "live casino", "mega bonus playtech", "playtech live",
 ]
 
 PALAVRAS_LIXO = [
@@ -116,7 +73,8 @@ PALAVRAS_LIXO = [
     "1º tempo", "2º tempo", "ganhador", "empate", "suspenso",
     "esportes ativos", "clique aqui e confira",
     "ver todos", "participe", "participar", "saiba mais",
-    "ler mais", "ver detalhes",
+    "ler mais", "ver detalhes", "concorra a ate",
+    "golden chips", "mega bonus",
 ]
 
 PALAVRAS_PROMO_VALIDAS = [
@@ -136,17 +94,27 @@ PALAVRAS_PROMO_VALIDAS = [
     "garanta 100%", "garanta 50%",
     "50% cashback", "25% cashback", "20% cashback",
     "100% do valor", "dobro da odd",
+    "garanta sua freebet", "desafio das odds",
+    "palpite na champions", "palpite na liberta",
+    "quem sabe faz ao vivo", "liga da galera",
+    "golden boost", "super aumentada", "marca ou anula",
+    "empate premiado", "missao criar aposta",
+    "aposte no brasileirao", "aposte nos torneios",
+    "chance extra", "nba playoffs",
 ]
 
 PALAVRAS_ESPECIAIS = {
     "Lottu": ["super aposta turbinada"],
     "Esportes da Sorte": ["super aposta turbinada"],
     "Bulls Bet": ["mega impulso"],
-    "Bet VIP": ["odds aumentadas de hoje"],
+    "Bet VIP": ["odds aumentadas"],
     "Aposta Tudo": ["superodds"],
     "Play Bet": ["turbinada da play"],
-    "Bolsa de Aposta": ["ou anula"],
+    "Bolsa de Aposta": ["ou anula", "marca ou anula"],
     "Ganhei Bet": ["quiz brasileirao", "bolao europeu", "comboboost"],
+    "Galera Bet": ["liga da galera", "desafio das odds", "garanta sua freebet"],
+    "Meridian Bet": ["freebet todos os dias"],
+    "Superbet": ["golden boost"],
 }
 
 def init_db():
@@ -168,9 +136,16 @@ def init_db():
 
 def detectar_tipo(titulo, descricao):
     texto = (titulo + " " + descricao).lower()
-    for tipo, palavras in KEYWORDS.items():
-        if any(p in texto for p in palavras):
-            return tipo
+    if any(p in texto for p in ["aposta gratis", "aposta grátis", "free bet", "freebet", "aposta sem risco", "chance extra", "nba playoffs"]):
+        return "aposta_gratis"
+    if any(p in texto for p in ["cashback", "empate premiado"]):
+        return "cashback"
+    if any(p in texto for p in ["super odds", "odds aumentadas", "golden boost", "turbinada", "mega impulso", "ou anula", "superodds", "super aumentada"]):
+        return "super_odds"
+    if any(p in texto for p in ["missao", "missão", "liga da galera", "quiz", "bolao", "desafio"]):
+        return "missao"
+    if any(p in texto for p in ["bonus", "bônus"]):
+        return "bonus"
     return "outro"
 
 def is_titulo_generico(titulo):
@@ -183,7 +158,7 @@ def is_titulo_generico(titulo):
 def is_valido(titulo, casa_nome):
     t = titulo.lower().strip()
 
-    if len(t) < 15 or len(t) > 120:
+    if len(t) < 15 or len(t) > 150:
         return False
 
     if is_titulo_generico(t):
@@ -233,8 +208,9 @@ async def scrape_casa(browser, casa):
         elementos = await page.query_selector_all(
             "h1, h2, h3, h4, "
             "[class*='promo'], [class*='offer'], [class*='banner'], "
-            "[class*='promotion'], [class*='boost'], "
-            "[class*='turbin'], [class*='impulso'], [class*='odds']"
+            "[class*='promotion'], [class*='boost'], [class*='golden'], "
+            "[class*='turbin'], [class*='impulso'], [class*='odds'], "
+            "[class*='mission'], [class*='missao'], [class*='cashback']"
         )
 
         promos = []
