@@ -7,32 +7,172 @@ from datetime import datetime
 APIFY_TOKEN = os.environ.get("APIFY_TOKEN")
 
 PERFIS_INSTAGRAM = [
-    {"casa": "Betano", "usuario": "betanobrasil"},
-    {"casa": "Superbet", "usuario": "superbetbrasil"},
-    {"casa": "Estrela Bet", "usuario": "estrelabet"},
-    {"casa": "KTO", "usuario": "ktobrasil"},
-    {"casa": "Galera Bet", "usuario": "galerabetoficial"},
-    {"casa": "Sportingbet", "usuario": "sportingbetbrasil"},
-    {"casa": "Hiper Bet", "usuario": "hiperbet"},
-    {"casa": "F12 Bet", "usuario": "f12bet"},
-    {"casa": "Betsul", "usuario": "betsul"},
-    {"casa": "Vai de Bet", "usuario": "vaidebet"},
+    {"casa": "1 Pra 1", "usuario": "1pra1.bet"},
+    {"casa": "1xbet", "usuario": "1xbet_brasil"},
+    {"casa": "4play", "usuario": "4playbet"},
+    {"casa": "4win", "usuario": "4win.bet.oficial"},
+    {"casa": "55W", "usuario": "55w.bet"},
+    {"casa": "5G", "usuario": "5gbet_"},
+    {"casa": "6R", "usuario": "6r.bet.br"},
+    {"casa": "6Z", "usuario": "6zbet"},
+    {"casa": "7Games", "usuario": "7games.bet"},
+    {"casa": "9D", "usuario": "9d.bet"},
+    {"casa": "9F", "usuario": "9f.bet"},
+    {"casa": "A247", "usuario": "a247bet"},
+    {"casa": "Afun", "usuario": "afunbet"},
+    {"casa": "AI", "usuario": "aibet.brasil"},
+    {"casa": "Alfabet", "usuario": "alfabetoficial"},
+    {"casa": "Aposta Ganha", "usuario": "apostaganha"},
+    {"casa": "Aposta1", "usuario": "aposta1br"},
+    {"casa": "ApostaBet", "usuario": "apostabet"},
+    {"casa": "ApostaMax", "usuario": "apostamax"},
+    {"casa": "Apostar", "usuario": "apostar.bet.br"},
+    {"casa": "ApostaTudo", "usuario": "apostatudo.bet.br"},
+    {"casa": "Apostou", "usuario": "apostou.bet.br"},
+    {"casa": "ArenaPlus", "usuario": "arenabetplus"},
+    {"casa": "AviãoBet", "usuario": "aviaobet"},
+    {"casa": "B1 Bet", "usuario": "b1.bet"},
+    {"casa": "B2xBet", "usuario": "b2xbet"},
+    {"casa": "Bacana Play", "usuario": "bacanaplay"},
+    {"casa": "BandBet", "usuario": "bandbet.br"},
+    {"casa": "BateuBet", "usuario": "bateubet"},
+    {"casa": "Baubingo", "usuario": "baubingo"},
+    {"casa": "Bet Buffalos", "usuario": "betbuffalos"},
+    {"casa": "Bet dá Sorte", "usuario": "betdasorte"},
+    {"casa": "Bet do Milhão", "usuario": "betdomilhaooficial"},
+    {"casa": "Bet Falcons", "usuario": "betfalcons"},
+    {"casa": "Bet Gorillas", "usuario": "betgorillas"},
+    {"casa": "Bet.App", "usuario": "betapp.br"},
+    {"casa": "Bet365", "usuario": "bet365brasil"},
+    {"casa": "Bet4", "usuario": "bet4brasil"},
+    {"casa": "Bet7K", "usuario": "bet7k"},
+    {"casa": "Betaki", "usuario": "betakioficial"},
+    {"casa": "Betano", "usuario": "betano.brasil"},
+    {"casa": "Betão", "usuario": "betaobr"},
+    {"casa": "Betboo", "usuario": "betboo_br"},
+    {"casa": "Betboom", "usuario": "betboombr"},
+    {"casa": "Betbra", "usuario": "betbra.oficial"},
+    {"casa": "Betcaixa", "usuario": "betcaixa"},
+    {"casa": "BetCopa", "usuario": "betcopaoficial"},
+    {"casa": "Betespecial", "usuario": "betespecial"},
+    {"casa": "BETesporte", "usuario": "betesporte"},
+    {"casa": "Betfair", "usuario": "betfairbrasil"},
+    {"casa": "BetFast", "usuario": "betfast.oficial"},
+    {"casa": "Betfusion", "usuario": "betfusion_br"},
+    {"casa": "BetMGM", "usuario": "betmgmbrasil"},
+    {"casa": "Betnacional", "usuario": "betnacional"},
+    {"casa": "Betou", "usuario": "betou.bet.br"},
+    {"casa": "BetPix365", "usuario": "betpix365"},
     {"casa": "Betsson", "usuario": "betssonbrasil"},
+    {"casa": "Betsul", "usuario": "betsul"},
+    {"casa": "BetVip", "usuario": "betvip.oficial"},
+    {"casa": "BetWarrior", "usuario": "betwarriorbrasil"},
+    {"casa": "Bigbet", "usuario": "bigbetsportsbrasil"},
+    {"casa": "Bolsa de Aposta", "usuario": "bolsadeaposta"},
+    {"casa": "Br4bet", "usuario": "br4bet"},
+    {"casa": "BraBet", "usuario": "brabet_official"},
+    {"casa": "Brasil Bet", "usuario": "brasilbet"},
+    {"casa": "Brasil da Sorte", "usuario": "brasildasorte"},
+    {"casa": "Bravo", "usuario": "bravobet.br"},
+    {"casa": "Brazino777", "usuario": "brazino777"},
+    {"casa": "BrBet", "usuario": "brbetoficial"},
+    {"casa": "Brxbet", "usuario": "brxbetoficial"},
+    {"casa": "Bullsbet", "usuario": "bullsbet"},
+    {"casa": "Casa de Apostas", "usuario": "casadeapostas"},
+    {"casa": "CBEsportes", "usuario": "cbesportes"},
+    {"casa": "Donald Bet", "usuario": "donaldbetoficial"},
+    {"casa": "Donos da Bola", "usuario": "donosdabola"},
+    {"casa": "Energia", "usuario": "energiabet"},
+    {"casa": "Esporte 365", "usuario": "esporte365"},
+    {"casa": "Esportes da Sorte", "usuario": "esportesdasorte"},
+    {"casa": "Esportiva Bet", "usuario": "esportivabt"},
+    {"casa": "EstrelaBet", "usuario": "estrelabt"},
+    {"casa": "F12 Bet", "usuario": "f12bet"},
+    {"casa": "Fanbit", "usuario": "fanbitoficial"},
+    {"casa": "Faz1Bet", "usuario": "faz1bet"},
+    {"casa": "FazoBet", "usuario": "fazobet"},
+    {"casa": "Galerabet", "usuario": "galerabet"},
+    {"casa": "Ganhei Bet", "usuario": "ganheibet"},
+    {"casa": "Geral Bet", "usuario": "geralbet"},
+    {"casa": "Ginga Bet", "usuario": "gingabetofc"},
+    {"casa": "Gol de Bet", "usuario": "goldebet"},
+    {"casa": "H2bet", "usuario": "h2bet"},
+    {"casa": "Hiperbet", "usuario": "hiperbetoficial"},
+    {"casa": "Ice", "usuario": "icebet.br"},
+    {"casa": "iJogo", "usuario": "ijogobet"},
+    {"casa": "Joga Junto", "usuario": "jogajunto.bet"},
+    {"casa": "Jogo de Ouro", "usuario": "jogodeouro"},
+    {"casa": "Jonbet", "usuario": "jonbetoficial"},
+    {"casa": "KTO", "usuario": "ktobrasil"},
+    {"casa": "Lance da Sorte", "usuario": "lancedasorte"},
+    {"casa": "Lotogreen", "usuario": "lotogreen"},
+    {"casa": "Lottoland", "usuario": "lottolandbrasil"},
+    {"casa": "Lottu", "usuario": "lottubet"},
+    {"casa": "Luvabet", "usuario": "luvabet"},
+    {"casa": "Maxima Bet", "usuario": "maximabet.br"},
+    {"casa": "MC Games", "usuario": "mcgamesbet"},
+    {"casa": "Meridian", "usuario": "meridianbet_br"},
+    {"casa": "Multibet", "usuario": "multibet.bet"},
+    {"casa": "Novibet", "usuario": "novibetbrasil"},
+    {"casa": "Pagolbet", "usuario": "pagolbet"},
+    {"casa": "Pinnacle", "usuario": "pinnacleoficial"},
+    {"casa": "PixBet", "usuario": "pixbet"},
+    {"casa": "Play", "usuario": "playbet.br"},
     {"casa": "Rei do Pitaco", "usuario": "reidopitaco"},
-    {"casa": "Multi Bet", "usuario": "multibet"},
-    {"casa": "Meridian Bet", "usuario": "meridianbet_br"},
-    {"casa": "Versus", "usuario": "versusbet_br"},
+    {"casa": "Rivalo", "usuario": "rivalo_br"},
+    {"casa": "Sorte Online", "usuario": "sorteonlinebr"},
+    {"casa": "Spin", "usuario": "spinbet.br"},
+    {"casa": "Sportingbet", "usuario": "sportingbetbrasil"},
+    {"casa": "SportyBet", "usuario": "sportybetbrasil"},
+    {"casa": "Stake", "usuario": "stakebrasil"},
+    {"casa": "Startbet", "usuario": "startbet.brasil"},
+    {"casa": "Superbet", "usuario": "superbet.brasil"},
+    {"casa": "Vai de Bet", "usuario": "vaidebet"},
+    {"casa": "Vbet", "usuario": "vbet_brasil"},
+    {"casa": "Versusbet", "usuario": "versusbet.br"},
+    {"casa": "Viva Sorte", "usuario": "vivasorte"},
+    {"casa": "Vupi", "usuario": "vupibet"},
 ]
 
 PERFIS_TWITTER = [
+    {"casa": "1xbet", "usuario": "1xbet_br"},
+    {"casa": "A247", "usuario": "a247bet"},
+    {"casa": "Aposta Ganha", "usuario": "ApostaGanha"},
+    {"casa": "ApostaTudo", "usuario": "apostatudo"},
+    {"casa": "BandBet", "usuario": "bandbet_br"},
+    {"casa": "Bet dá Sorte", "usuario": "betdasorte"},
+    {"casa": "Bet365", "usuario": "bet365_br"},
+    {"casa": "Bet7K", "usuario": "bet7k_br"},
     {"casa": "Betano", "usuario": "BetanoBrasil"},
-    {"casa": "Superbet", "usuario": "SuperbetBrasil"},
+    {"casa": "Betboom", "usuario": "BetBoomBrasil"},
+    {"casa": "Betfair", "usuario": "BetfairBrasil"},
+    {"casa": "BetMGM", "usuario": "BetMGMBrasil"},
+    {"casa": "Betnacional", "usuario": "betnacional"},
+    {"casa": "Betsson", "usuario": "Betsson_Brasil"},
+    {"casa": "Betsul", "usuario": "betsulbet"},
+    {"casa": "Blaze", "usuario": "blaze"},
+    {"casa": "Br4bet", "usuario": "br4bet"},
+    {"casa": "Brasil Bet", "usuario": "brasilbet_br"},
+    {"casa": "Brazino777", "usuario": "brazino777br"},
+    {"casa": "Esportes da Sorte", "usuario": "EsportesdaSorte"},
+    {"casa": "EstrelaBet", "usuario": "EstrelaBet"},
+    {"casa": "Galerabet", "usuario": "galerabet"},
+    {"casa": "Gol de Bet", "usuario": "goldebet"},
+    {"casa": "Hiperbet", "usuario": "hiperbetoficial"},
     {"casa": "KTO", "usuario": "KTOBrasil"},
-    {"casa": "Galera Bet", "usuario": "GaleraBet"},
-    {"casa": "Sportingbet", "usuario": "Sportingbet_BR"},
-    {"casa": "Hiper Bet", "usuario": "HiperBet_BR"},
-    {"casa": "Betsul", "usuario": "betsul"},
-    {"casa": "F12 Bet", "usuario": "f12bet"},
+    {"casa": "Luvabet", "usuario": "luva_bet"},
+    {"casa": "Matchbook", "usuario": "matchbook"},
+    {"casa": "Meridian", "usuario": "meridianbet_br"},
+    {"casa": "Novibet", "usuario": "NovibetBrasil"},
+    {"casa": "Pinnacle", "usuario": "Pinnacle"},
+    {"casa": "PixBet", "usuario": "PixBet"},
+    {"casa": "Realsbet", "usuario": "realsbetoficial"},
+    {"casa": "Rivalo", "usuario": "RivaloBrasil"},
+    {"casa": "Sportingbet", "usuario": "SportingBetBR"},
+    {"casa": "Stake", "usuario": "Stake"},
+    {"casa": "Superbet", "usuario": "SuperbetBrasil"},
+    {"casa": "Vai de Bet", "usuario": "vaidebet"},
+    {"casa": "Vbet", "usuario": "VBet_Brasil"},
 ]
 
 PALAVRAS_CASSINO = [
@@ -43,14 +183,14 @@ PALAVRAS_CASSINO = [
     "tigre", "gates", "sugar rush", "sweet bonanza", "big bass",
     "wild", "scatter", "book of", "fortune rabbit", "fortune snake",
     "fortune tiger", "superspin", "supercoins", "golden chips",
-    "playtech", "evoplay", "popok",
+    "playtech", "evoplay", "popok", "jackpot", "raspadinha",
 ]
 
 PALAVRAS_LIXO = [
     "siga", "seguir", "compartilhe", "marque um amigo",
-    "regulamento", "termos e condições", "saiba mais",
-    "jogue com responsabilidade", "proibido para menores",
-    "18+", "+18", "portaria", "spa/mf",
+    "regulamento", "termos e condições", "jogue com responsabilidade",
+    "proibido para menores", "18+", "+18", "portaria", "spa/mf",
+    "link na bio", "acesse o site", "baixe o app",
 ]
 
 PALAVRAS_PROMO_VALIDAS = [
@@ -72,6 +212,7 @@ PALAVRAS_PROMO_VALIDAS = [
     "garanta 100%", "garanta 50%",
     "50% cashback", "25% cashback", "20% cashback",
     "100% do valor", "chance extra",
+    "em apostas gratis", "em freebet", "em creditos",
 ]
 
 def init_db():
@@ -93,7 +234,7 @@ def init_db():
 
 def detectar_tipo(texto):
     t = texto.lower()
-    if any(p in t for p in ["aposta gratis", "aposta grátis", "freebet", "free bet", "aposta sem risco", "chance extra"]):
+    if any(p in t for p in ["aposta gratis", "aposta grátis", "freebet", "free bet", "aposta sem risco", "chance extra", "em apostas gratis", "em freebet"]):
         return "aposta_gratis"
     if any(p in t for p in ["cashback", "empate premiado", "reembolso"]):
         return "cashback"
@@ -108,20 +249,15 @@ def detectar_tipo(texto):
 def is_post_valido(texto):
     if not texto or len(texto) < 20:
         return False
-
     t = texto.lower()
-
     for cassino in PALAVRAS_CASSINO:
         if cassino in t:
             return False
-
     for lixo in PALAVRAS_LIXO:
         if lixo in t:
             return False
-
     if any(p in t for p in PALAVRAS_PROMO_VALIDAS):
         return True
-
     return False
 
 def salvar_nova(con, promo):
@@ -138,90 +274,61 @@ def salvar_nova(con, promo):
         return False
 
 def scrape_instagram(perfil):
-    print(f"Instagram: {perfil['usuario']}")
     try:
         resposta = requests.post(
             "https://api.apify.com/v2/acts/apify~instagram-post-scraper/run-sync-get-dataset-items",
             params={"token": APIFY_TOKEN, "timeout": 60},
             json={
                 "directUrls": [f"https://www.instagram.com/{perfil['usuario']}/"],
-                "resultsLimit": 12
+                "resultsLimit": 10
             },
             timeout=90
         )
         if resposta.status_code == 200:
             return resposta.json()
-        print(f"  Erro status: {resposta.status_code}")
         return []
     except Exception as e:
-        print(f"  Erro: {e}")
+        print(f"  Erro Instagram {perfil['usuario']}: {e}")
         return []
 
 def scrape_twitter(perfil):
-    print(f"Twitter: {perfil['usuario']}")
     try:
         resposta = requests.post(
             "https://api.apify.com/v2/acts/apify~twitter-scraper/run-sync-get-dataset-items",
             params={"token": APIFY_TOKEN, "timeout": 60},
             json={
                 "startUrls": [{"url": f"https://twitter.com/{perfil['usuario']}"}],
-                "maxItems": 12
+                "maxItems": 10
             },
             timeout=90
         )
         if resposta.status_code == 200:
             return resposta.json()
-        print(f"  Erro status: {resposta.status_code}")
         return []
     except Exception as e:
-        print(f"  Erro: {e}")
+        print(f"  Erro Twitter {perfil['usuario']}: {e}")
         return []
 
-def processar_posts_instagram(con, posts, perfil):
+def processar_posts(con, posts, perfil, rede):
+    url_perfil = f"https://www.instagram.com/{perfil['usuario']}/" if rede == "Instagram" else f"https://twitter.com/{perfil['usuario']}"
     novas = 0
-    url_perfil = f"https://www.instagram.com/{perfil['usuario']}/"
 
     for post in posts:
-        texto = post.get("caption", "") or ""
+        if rede == "Instagram":
+            texto = post.get("caption", "") or ""
+        else:
+            texto = post.get("text", "") or post.get("full_text", "") or ""
+
         if not is_post_valido(texto):
             continue
 
         titulo = texto[:100].split("\n")[0].strip()
         descricao = texto[:400]
-        uid = hashlib.md5(f"instagram_{perfil['casa']}_{titulo}".encode()).hexdigest()
+        uid = hashlib.md5(f"{rede}_{perfil['casa']}_{titulo}".encode()).hexdigest()
 
         promo = {
             "id": uid,
-            "casa": f"{perfil['casa']} (Instagram)",
-            "titulo": titulo,
-            "descricao": descricao,
-            "url": post.get("url", url_perfil),
-            "tipo": detectar_tipo(texto),
-            "data_coleta": datetime.now().isoformat(),
-        }
-
-        if salvar_nova(con, promo):
-            novas += 1
-            print(f"  Nova: {titulo[:60]}")
-
-    return novas
-
-def processar_posts_twitter(con, posts, perfil):
-    novas = 0
-    url_perfil = f"https://twitter.com/{perfil['usuario']}"
-
-    for post in posts:
-        texto = post.get("text", "") or post.get("full_text", "") or ""
-        if not is_post_valido(texto):
-            continue
-
-        titulo = texto[:100].split("\n")[0].strip()
-        descricao = texto[:400]
-        uid = hashlib.md5(f"twitter_{perfil['casa']}_{titulo}".encode()).hexdigest()
-
-        promo = {
-            "id": uid,
-            "casa": f"{perfil['casa']} (Twitter)",
+            "casa": f"{perfil['casa']} ({rede})",
             "titulo": titulo,
             "descricao": descricao,
             "url": post.get("url", url_perfil),
@@ -237,24 +344,26 @@ def processar_posts_twitter(con, posts, perfil):
 
 def main():
     if not APIFY_TOKEN:
-        print("APIFY_TOKEN não configurado, pulando redes sociais")
+        print("APIFY_TOKEN nao configurado, pulando redes sociais")
         return
 
     con = init_db()
     total = 0
 
-    print("\n=== INSTAGRAM ===")
+    print(f"\n=== INSTAGRAM ({len(PERFIS_INSTAGRAM)} casas) ===")
     for perfil in PERFIS_INSTAGRAM:
+        print(f"Scraping: {perfil['casa']}")
         posts = scrape_instagram(perfil)
-        novas = processar_posts_instagram(con, posts, perfil)
-        print(f"  {perfil['casa']}: {len(posts)} posts, {novas} novas promocoes")
+        novas = processar_posts(con, posts, perfil, "Instagram")
+        print(f"  {len(posts)} posts, {novas} novas promocoes")
         total += novas
 
-    print("\n=== TWITTER ===")
+    print(f"\n=== TWITTER ({len(PERFIS_TWITTER)} casas) ===")
     for perfil in PERFIS_TWITTER:
+        print(f"Scraping: {perfil['casa']}")
         posts = scrape_twitter(perfil)
-        novas = processar_posts_twitter(con, posts, perfil)
-        print(f"  {perfil['casa']}: {len(posts)} posts, {novas} novas promocoes")
+        novas = processar_posts(con, posts, perfil, "Twitter")
+        print(f"  {len(posts)} posts, {novas} novas promocoes")
         total += novas
 
     print(f"\nTotal redes sociais: {total} novas promocoes")
