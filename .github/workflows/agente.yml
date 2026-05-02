@@ -1,5 +1,5 @@
 name: Agente
-# v6
+# v7
 on:
   schedule:
     - cron: '30 8 * * *'
@@ -29,6 +29,10 @@ jobs:
       - run: python social_scraper.py
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+      - run: python email_scraper.py
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_PASS: ${{ secrets.GMAIL_PASS }}
       - run: python notifier.py
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
